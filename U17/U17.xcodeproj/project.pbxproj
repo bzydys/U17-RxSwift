@@ -99,7 +99,6 @@
 				E84F44D69174C46566A1B28E /* Pods-U17UITests.debug.xcconfig */,
 				9140D3833FEF6418AB9C71E6 /* Pods-U17UITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,12 +137,18 @@
 		9B0B1538240101E00003A499 /* U17 */ = {
 			isa = PBXGroup;
 			children = (
-				9B0B1539240101E00003A499 /* AppDelegate.swift */,
+				9B0B1567240108900003A499 /* Application */,
+				9B0B1569240108AD0003A499 /* Configs */,
+				9B0B1568240108A40003A499 /* Common */,
+				9B0B156A240108B70003A499 /* Extensions */,
+				9B0B156B240109050003A499 /* Managers */,
+				9B0B156C240109130003A499 /* Models */,
+				9B0B156D240109240003A499 /* Modules */,
+				9B0B156E240109300003A499 /* Libs */,
+				9B0B156F240109540003A499 /* Resources */,
 				9B0B153B240101E00003A499 /* ViewController.swift */,
 				9B0B153D240101E00003A499 /* Main.storyboard */,
-				9B0B1540240101E30003A499 /* Assets.xcassets */,
 				9B0B1542240101E30003A499 /* LaunchScreen.storyboard */,
-				9B0B1545240101E30003A499 /* Info.plist */,
 			);
 			path = U17;
 			sourceTree = "<group>";
@@ -164,6 +169,72 @@
 				9B0B155B240101E40003A499 /* Info.plist */,
 			);
 			path = U17UITests;
+			sourceTree = "<group>";
+		};
+		9B0B1567240108900003A499 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9B0B1539240101E00003A499 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9B0B1568240108A40003A499 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9B0B1569240108AD0003A499 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		9B0B156A240108B70003A499 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9B0B156B240109050003A499 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9B0B156C240109130003A499 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9B0B156D240109240003A499 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9B0B156E240109300003A499 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		9B0B156F240109540003A499 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B0B1540240101E30003A499 /* Assets.xcassets */,
+				9B0B1545240101E30003A499 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,7 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4U3X9BDWQG;
-				INFOPLIST_FILE = U17/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/U17/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -604,7 +675,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4U3X9BDWQG;
-				INFOPLIST_FILE = U17/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/U17/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
