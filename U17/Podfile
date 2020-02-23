@@ -2,12 +2,22 @@
 platform :ios, '10.0'
 
 target 'U17' do
+  inhibit_all_warnings!
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
-  pod 'Moya/Core'
+  pod 'Moya/RxSwift', '~> 14.0.0-alpha.1'
+  pod 'MJRefresh'
+  pod 'SwiftyJSON'
+  pod 'SnapKit'
+  pod 'SwiftyLog'
+  pod 'Hero'
+  pod 'MBProgressHUD'
+  pod 'Kingfisher'
+  pod 'CryptoSwift'
+  pod 'JXSegmentedView'
 
   # Pods for U17
 

@@ -15,6 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        self.window = UIWindow()
+        
+        defer {
+            self.window?.makeKeyAndVisible()
+        }
+        
+        Application.shared.presentInitialScreen(in: window!)
+        
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }
