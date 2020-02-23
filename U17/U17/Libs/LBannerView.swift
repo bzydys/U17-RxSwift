@@ -9,7 +9,7 @@
 import UIKit
 
 enum PageControlDotStyle {
-    case center, left, right, none
+    case center(bottom: CGFloat), left(left: CGFloat, bottom: CGFloat), right(right: CGFloat, bottom: CGFloat), none
 }
 
 protocol Bannerable {
@@ -33,7 +33,7 @@ struct DefaultConfig: BannerConfigable {
     
     var playDuration: TimeInterval {return 4}
     
-    var dotPosition: PageControlDotStyle {return .none}
+    var dotPosition: PageControlDotStyle {return .center(bottom: 0)}
     
     var orientation: UIPageViewController.NavigationOrientation {
         return .horizontal
@@ -80,7 +80,11 @@ class LBannerView: UIView, Bannerable {
     }
     private let urls: [URL]
     private let config: BannerConfigable
-    private var currentSelectIndex: Int = 0
+    private var currentSelectIndex: Int = 0 {
+        didSet {
+            pageControl.currentPage = currentSelectIndex
+        }
+    }
     private var vcs: [ImageViewController] = []
     private lazy var pageVc: UIPageViewController = {
         let vc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: config.orientation, options: nil)
@@ -88,6 +92,7 @@ class LBannerView: UIView, Bannerable {
     }()
     weak var delegate: LBannerViewDelegate?
     private var timerForMovingCarousel: Timer!
+    private var pageControl: UIPageControl!
     
     
     required init(_ urls: [URL], config: BannerConfigable = DefaultConfig()) {
@@ -96,7 +101,7 @@ class LBannerView: UIView, Bannerable {
         super.init(frame: .zero)
         makeImageViewController()
         makeUI()
-        
+        makePageControl()
         startTimerForMovingCarousel()
     }
     
@@ -146,8 +151,30 @@ class LBannerView: UIView, Bannerable {
     }
     
     private func makePageControl() {
-        guard config.dotPosition != .none else {return}
+//        guard config.dotPosition != PageControlDotStyle.none else {return}
+        pageControl = UIPageControl()
+        pageControl.numberOfPages = urls.count
+        addSubview(pageControl)
         
+        switch config.dotPosition {
+        case .center(let bottom):
+            pageControl.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.bottom.equalToSuperview().offset(-bottom)
+            }
+        case let .left(left, bottom):
+            pageControl.snp.makeConstraints { make in
+                make.left.equalTo(left)
+                make.bottom.equalToSuperview().offset(-bottom)
+            }
+        case let .right(right, bottom):
+            pageControl.snp.makeConstraints { make in
+                make.left.equalTo(-right)
+                make.bottom.equalToSuperview().offset(-bottom)
+            }
+        default:
+            pageControl.removeFromSuperview()
+        }
         
     }
     
